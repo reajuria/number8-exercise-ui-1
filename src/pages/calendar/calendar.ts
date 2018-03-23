@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Task } from '../../models/task/task';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CalendarPage {
 
+  incomingTask: Task;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CalendarPage');
+    console.log(this.navParams.get('task'));
+    // if (this.navParams.get('task'))
+    // console.log('ionViewDidLoad CalendarPage');
   }
 
 }

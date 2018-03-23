@@ -5,15 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { Number8App } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { Number8TaskComponent } from '../components/number8-task/number8-task';
 import { CountriesProvider } from '../providers/countries/countries';
 
 @NgModule({
   declarations: [
     Number8App,
-    HomePage,
-    Number8TaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,8 +18,6 @@ import { CountriesProvider } from '../providers/countries/countries';
   bootstrap: [IonicApp],
   entryComponents: [
     Number8App,
-    HomePage,
-    Number8TaskComponent,
   ],
   providers: [
     StatusBar,
