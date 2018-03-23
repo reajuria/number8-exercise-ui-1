@@ -15,9 +15,9 @@ export class Number8TaskComponent {
 
   constructor(private formBuilder: FormBuilder, private countries: CountriesProvider) {
     this.taskInput = this.formBuilder.group({
-      startDate: new FormControl('' ,[Validators.required]),
-      days: new FormControl(1 ,[Validators.required, Validators.min(1)]),
-      countryCode: new FormControl('' ,[Validators.required, Validators.maxLength(2), Validators.minLength(2)])
+      startDate: new FormControl('', [Validators.required]),
+      days: new FormControl(1, [Validators.required, Validators.min(1)]),
+      countryCode: new FormControl('', [Validators.required, Validators.maxLength(2), Validators.minLength(2)])
     });
   }
 
@@ -27,6 +27,7 @@ export class Number8TaskComponent {
   }
 
   onCountryCodeChange(countryCodeInput: string) {
+    countryCodeInput = countryCodeInput.toUpperCase();
     if (countryCodeInput.length > 0) {
       const found: Country[] = this.countries.findByCode(countryCodeInput);
       this.countryName = found.length >= 1 ? found[0].name : '';
