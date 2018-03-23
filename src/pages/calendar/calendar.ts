@@ -11,13 +11,16 @@ export class CalendarPage {
 
   incomingTask: Task;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log(this.navParams.get('task'));
-    // if (this.navParams.get('task'))
-    // console.log('ionViewDidLoad CalendarPage');
+    this.incomingTask = this.navParams.get('task');
+    if (this.incomingTask === undefined) {
+      if (this.navCtrl.parent !== undefined) {
+        this.navCtrl.goToRoot({});
+      } else {
+        this.navCtrl.setRoot('HomePage');
+      }
+    }
   }
-
 }
