@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Task } from '../../models/task/task';
+import { Task, TaskInterface } from '../../models/task/task';
 import { CountriesProvider, Country } from '../../providers/countries/countries';
 
 @Component({
@@ -11,7 +11,7 @@ export class Number8TaskComponent {
   
   private taskInput: FormGroup;
   private task: Task;
-  countryName: string = '';
+  selectedCountry: Country;
 
   constructor(private formBuilder: FormBuilder, private countries: CountriesProvider) {
     this.taskInput = this.formBuilder.group({
@@ -22,17 +22,22 @@ export class Number8TaskComponent {
   }
 
   taskProcess() {
-    this.task = new Task(this.taskInput.value);
+    const userInputTask: TaskInterface = {
+      startDate: this.taskInput.value.startDate,
+      days: this.taskInput.value.days,
+      country: this.selectedCountry
+    }
+    this.task = new Task(userInputTask);
     console.log(this.task);
   }
 
   onCountryCodeChange(countryCodeInput: string) {
     countryCodeInput = countryCodeInput.toUpperCase();
-    if (countryCodeInput.length > 0) {
+    if (countryCodeInput.length > 0 && /[a-zA-Z]+/.test(countryCodeInput)) {
       const found: Country[] = this.countries.findByCode(countryCodeInput);
-      this.countryName = found.length >= 1 ? found[0].name : '';
+      this.selectedCountry = found.length >= 1 ? found[0] : undefined;
     } else {
-      this.countryName = '';
+      this.selectedCountry = undefined;
     }
   }
 

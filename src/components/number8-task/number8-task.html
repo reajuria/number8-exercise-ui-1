@@ -10,7 +10,7 @@
   <ion-item>
     <ion-label floating>Country Code</ion-label>
     <ion-input formControlName="countryCode" type="text" maxlength="2" (input)="onCountryCodeChange($event.target.value)"></ion-input>
-    <div item-end>{{countryName}}</div>
+    <div item-end *ngIf="selectedCountry !== undefined">{{selectedCountry.name}}</div>
   </ion-item>
   <ion-item></ion-item>
   <button ion-item outline color="primary">Show Calendar</button>
