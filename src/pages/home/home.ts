@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  ionViewDidEnter () {
+    // this.navCtrl.push('CalendarPage');
+  }
+
 }

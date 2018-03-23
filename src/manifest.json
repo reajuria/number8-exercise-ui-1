@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Number8 Task Calendar",
+  "short_name": "Number8 Calendar",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
