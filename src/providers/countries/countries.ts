@@ -3,12 +3,20 @@ import { Injectable } from '@angular/core';
 export interface Country {
   name: string;
   code: string;
-  holidays?: CountryHolidays[];
-}
-
-interface CountryHolidays {
-  month: number;
-  days: Array<number>;
+  holidays?: {
+    1?: number[];
+    2?: number[];
+    3?: number[];
+    4?: number[];
+    5?: number[];
+    6?: number[];
+    7?: number[];
+    8?: number[];
+    9?: number[];
+    10?: number[];
+    11?: number[];
+    12?: number[];
+  }
 }
 
 @Injectable()
@@ -254,14 +262,15 @@ export class CountriesProvider {
       {name: "Ukraine", code: "UA"},
       {name: "United Arab Emirates", code: "AE"},
       {name: "United Kingdom of Great Britain and Northern Ireland", code: "GB"},
-      {name: "United States of America", code: "US", holidays: [
-        {month: 1, days: [
-          1,
-          16 // Sample day
-        ]},
-        {month: 9, days: [1]}, // Sample day provided in exercise
-        {month: 12, days: [1]},
-      ]},
+      {
+        name: "United States of America",
+        code: "US",
+        holidays: {
+          1: [1,16],
+          9: [1],
+          12: [31]
+        }
+      },
       {name: "United States Minor Outlying Islands", code: "UM"},
       {name: "Uruguay", code: "UY"},
       {name: "Uzbekistan", code: "UZ"},
