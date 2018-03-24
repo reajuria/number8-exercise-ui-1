@@ -1,3 +1,23 @@
 number8-calendar {
-
+  .wrapper {
+    width: 100%;
+  }
+  .table {
+    margin: 0 auto;
+    border: 1px solid white;
+    margin-bottom: 12px;
+  }
+  .table-header {
+    background-color: #DCEDC8;
+    text-align: center;
+    padding: 2px;
+  }
+  .days-header {
+    background-color: #FAFAFA;
+  }
+  .date-field {
+    height: 25px !important;
+    width: 25px !important;
+    text-align: center;
+  }
 }

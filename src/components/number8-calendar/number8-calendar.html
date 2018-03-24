@@ -1,8 +1,43 @@
-<div>Month Year</div>
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<h2>Task Information</h2>
+<ion-list *ngIf="task !== undefined">
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <div item-end>{{task.country.name}}</div>
+  </ion-item>
+  <ion-item>
+    <ion-label>Start Date</ion-label>
+    <div item-end>{{task.startDate | date:'longDate'}}</div>
+  </ion-item>
+  <ion-item>
+    <ion-label>Duration</ion-label>
+    <div item-end>{{task.daysCount}} Days</div>
+  </ion-item>
+  <ion-item>
+    <ion-label>Holidays</ion-label>
+    <div item-end>{{task.holidaysCount}} Days</div>
+  </ion-item>
+  <ion-item>
+    <ion-label>End Date</ion-label>
+    <div item-end>{{task.endDate | date:'longDate'}}</div>
+  </ion-item>
+</ion-list>
+<h2>Task Calendar</h2>
+<div class="wrapper">
+  <table class="table" border="1" *ngFor="let month of months">
+    <tr>
+      <td class="date-field days-header" *ngFor="let day of monthHeader">
+        {{day}}
+      </td>
+    </tr>
+    <tr>
+      <td class="table-header" colspan="7">
+        {{month.monthName}} {{month.year}}
+      </td>
+    </tr>
+    <tr *ngFor="let week of month.weeks">
+      <td class="date-field" *ngFor="let day of week.days" [style.backgroundColor]="day.color">
+        <span *ngIf="day.date !== 0">{{day.date}}</span>
+      </td>
+    </tr>
+  </table>
+</div>
