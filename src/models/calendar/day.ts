@@ -3,7 +3,7 @@ export class Day {
   private dayOfWeek: number;
   private _isHoliday: boolean;
   private _date: number;
-  private color: string;
+  color: string;
 
   constructor(dayOfWeek: number) {
     this._date = 0;
