@@ -1,6 +1,6 @@
 {
   "name": "Number8 Task Calendar",
-  "short_name": "Number8 Calendar",
+  "short_name": "N8 Task",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
