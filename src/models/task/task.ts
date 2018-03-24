@@ -19,7 +19,7 @@ export class Task {
    */
   constructor (inputTask: TaskInterface) {
     this.startDate = moment(inputTask.startDate).toDate();
-    this.days = inputTask.days - 1; // Remove first counting day
+    this.days = inputTask.days - 1; // Remove first running day
     this.country = inputTask.country;
     this.calculateEndDate();
   }
@@ -43,7 +43,7 @@ export class Task {
       }
     }
 
-    this.daysCount = moment(this.endDate).diff(this.startDate);
+    this.daysCount = moment(this.endDate).diff(this.startDate, 'days') + 1; // End Date counts too
   }
 
 }
